@@ -1,5 +1,0 @@
-$(function(){$("#domain").keyup(function(e){if(e.keyCode==13){ajax();}});$("#button").click(function(){ajax();});function IsURL(strUrl){var regular=/^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.([a-z0-9]+)(\/[-a-z0-9_:\@&?=+,.!\/~%\$]*)?)$/i
-if(regular.test(strUrl)){return true;}
-else{return false;}}
-function ajax(){var val=$("#domain").val(),buttonmsg='点击查询';if(!val||!IsURL(val)){return alert("请输入正确的域名");}
-$.ajax({type:"GET",url:"whois.php",data:{domain:val},beforeSend:function(){$("#button").attr("disabled",true),$("#msg").hide(),$("#button").html("查询中.....");},success:function(a){$("button").attr("disabled",false),$("#button").html(buttonmsg),$("#msg").slideDown(),$("#msg").html(a);},error:function(a){$("button").attr("disabled",false),$("#button").html(buttonmsg),alert("失败");}});}});
